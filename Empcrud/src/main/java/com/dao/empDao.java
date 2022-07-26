@@ -71,4 +71,21 @@ public class empDao {
 		}
 		return l;
 	}
+	 public static int deleteUser(int id){  
+	        int status=0;  
+	        try{  
+	            Connection con=empDao.connect();  
+	            PreparedStatement ps= con.prepareStatement("delete from employee where id=?");  
+	            ps.setInt(1,id);  
+	            status=ps.executeUpdate();  
+	              
+	            con.close();  
+	        }
+	        catch(Exception e)
+	        {
+	        	e.printStackTrace();
+	        	}  
+	          
+	        return status;  
+	    }  
 }
